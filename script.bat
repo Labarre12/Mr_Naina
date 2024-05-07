@@ -1,7 +1,7 @@
 set lib=lib
 set bin=bin
 set src=src\*.java
-set jarname=Winter
+set jarname=Salto
 
 set projectlib=D:\Naina\Sprint\testdeploy\lib
 
