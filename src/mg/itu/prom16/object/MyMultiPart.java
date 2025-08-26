@@ -1,4 +1,4 @@
-package object;
+package mg.itu.prom16.object;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,6 +9,14 @@ import jakarta.servlet.http.Part;
 public class MyMultiPart {
     private byte[] bytes;
     private String filename;
+
+    public byte[] getBytes() {
+        return bytes;
+    }
+
+    public void setBytes(byte[] bytes) {
+        this.bytes = bytes;
+    }
 
     public String getFilename() {
         return filename;
@@ -45,6 +53,13 @@ public class MyMultiPart {
         } else {
             throw new IOException("Le nom du fichier est introuvable.");
         }
+    }
+
+    public void transferToFullPath(String fullPath) throws IOException {
+        if (this.filename == null || this.filename.isEmpty()) {
+            throw new IOException("Nom de fichier invalide");
+        }
+        this.transferTo(new File(fullPath));
     }
 
     public String getOriginalFilename(Part p) {
