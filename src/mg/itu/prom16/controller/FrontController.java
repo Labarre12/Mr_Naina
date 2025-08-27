@@ -200,12 +200,4 @@ public class FrontController extends HttpServlet {
         out.println("</html>");
     }
 
-    public void setDateReservation(String dtDebut) {
-        LocalDateTime localDateTime= LocalDateTime.parse(dtDebut);
-        this.dateReservation = Timestamp.valueOf(localDateTime);
-    }
-    public void setDateReservation(LocalDateTime time){
-        this.dateReservation = Timestamp.valueOf(time);
-    }
-    
 }
