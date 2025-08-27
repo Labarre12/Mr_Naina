@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -196,6 +198,14 @@ public class FrontController extends HttpServlet {
         out.println("</div>");
         out.println("</body>");
         out.println("</html>");
+    }
+
+    public void setDateReservation(String dtDebut) {
+        LocalDateTime localDateTime= LocalDateTime.parse(dtDebut);
+        this.dateReservation = Timestamp.valueOf(localDateTime);
+    }
+    public void setDateReservation(LocalDateTime time){
+        this.dateReservation = Timestamp.valueOf(time);
     }
     
 }
